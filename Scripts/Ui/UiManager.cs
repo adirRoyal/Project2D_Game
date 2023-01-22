@@ -10,10 +10,14 @@ public class UiManager : MonoBehaviour
     [Header("Pause")]
     [SerializeField] private GameObject pauseScreen;
 
+    [Header("Play")]
+    [SerializeField] private GameObject playScreen;
+
     private void Awake()
     {
         gameOverScreen.SetActive(false);
         pauseScreen.SetActive(false);
+        
     }
     private void Update()
     {
@@ -22,6 +26,11 @@ public class UiManager : MonoBehaviour
             //If pause screen already active unpause and viceversa
             PauseGame(!pauseScreen.activeInHierarchy);
         }
+    }
+
+    public void Play()
+    {
+        SceneManager.LoadScene(1);
     }
 
     #region Game Over
@@ -77,4 +86,6 @@ public class UiManager : MonoBehaviour
         SoundManager.instance.ChangeMusicVolume(0.2f);
     }
     #endregion
+
+   
 }

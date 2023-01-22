@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class LoadingManager : MonoBehaviour
 {
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Input.GetKeyDown(KeyCode.F))
-            SceneManager.LoadScene(1);
+        if(other.gameObject.tag == "Player")
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
     }
 
 }

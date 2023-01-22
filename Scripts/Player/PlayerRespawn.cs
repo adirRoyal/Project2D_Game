@@ -13,17 +13,13 @@ public class PlayerRespawn : MonoBehaviour
         uiManager = FindObjectOfType<UiManager>();
     }
 
-    public void CheckRespawn()
+    public void RespawnCheck()
     {
-        //Check if check point available
-        if (currentCheckpoint == null)
+        if (currentCheckpoint == null) 
         {
-            //Show game over screen
             uiManager.GameOver();
-
-            return; //Don't execute the rest of this function
+            return;
         }
-
 
         playerHealth.Respawn(); //Restore player health and reset animation
         transform.position = currentCheckpoint.position; //Move player to checkpoint location
